@@ -2,7 +2,7 @@ class Patient < ApplicationRecord
   include AASM
 
   before_save :compute_priority
-  #validates :phone_number, format: { with: /+1\d{10}-\d{3}-\d{4}/, message: "bad phone_number" }
+  phony_normalize :phone_number, default_country_code: 'CAN'
 
   aasm do
     state :waiting, initial: true

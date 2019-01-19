@@ -1,15 +1,13 @@
 module TwilioHelper
   LEAVE_COMMAND = 'LEAVE'
+
+  # to, is a 10 digit numeric string
   def send_message(to:, body:)
-    begin
-      twilio_client.api.account.messages.create(
-        from: ENV['TWILIO_PHONE_NUMBER'],
-        to: to,
-        body: body
-      )
-    rescue
-      return
-    end
+    twilio_client.api.account.messages.create(
+      from: ENV['TWILIO_PHONE_NUMBER'],
+      to: "+1#{to}",
+      body: body
+    )
   end
 
   def inbound_messages

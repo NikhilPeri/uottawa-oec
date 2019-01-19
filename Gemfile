@@ -7,7 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
+# Use Puma as the app servera
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -52,7 +52,8 @@ gem 'groupdate'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 
-
+# Phone number normalization
+gem 'phony_rails'
 
 
 group :development, :test do
