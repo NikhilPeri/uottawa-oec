@@ -17,10 +17,14 @@ class NotificationJob < ApplicationJob
       See you soon!
       EOF
 
-      TwilioHelper.send_message(
-        to: patient.phone_number,
-        body: body
-      )
+      begin
+        TwilioHelper.send_message(
+          to: patient.phone_number,
+          body: body
+        )
+      rescue
+        Rails.logger.warn("Could not Notify #{patient.phone_number}")
+      end
     end
   end
 

@@ -3,13 +3,11 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root to: 'patients#index'
-  resources :patients do
-   get 'complete'
-  end
+  root to: 'static_pages#stats'
+  resources :patients
+  get 'patiens/:id/complete', to: 'patients#complete'
 
   get  '/help',    to: 'static_pages#help'
-  get  '/stats',    to: 'static_pages#stats'
 
   post 'webhooks/twilio' => 'webhooks#twilio'
 end
