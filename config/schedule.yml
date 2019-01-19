@@ -1,0 +1,4 @@
+notification_job:
+  cron: "* * * * *"
+  class: NotificationJob
+  queue: default

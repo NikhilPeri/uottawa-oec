@@ -34,11 +34,11 @@ class PatientsController < ApplicationController
   end
 
   def index
-    @patients = Patient.all.order(:aasm_state).paginate(page: params[:page])
+    @patients = Patient.where(aasm_state: ['waiting', 'notified']).order(:predicted_time).paginate(page: params[:page])
   end
 
   def complete
-    @patient = Patient.find(params[:patient_id])
+    @patient = Patient.find(params[:id])
     @patient.complete! unless @patient.completed?
     flash[:success]= 'Appointment Completed'
     redirect_to action: :index

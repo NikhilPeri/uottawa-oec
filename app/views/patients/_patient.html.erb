@@ -1,7 +1,10 @@
-
-<li id="patient-<%= patient.id%>" class="row">
-    <div id="First Name" class="col-xs-3"><%= patient.first_name+' '+patient.last_name %></div>
-    <div id="Appointment Status" class="col-xs-3"><%= patient.aasm_state %></div>
-    <div id="Predicted Time" class="col-xs-3"><%= patient.predicted_time %></div>
-    <%= link_to 'Edit Appt', edit_patient_path(id: patient.id), :class => "col-xs-3 btn btn-primary" %>
-</li>
+<tr>
+  <td><%= patient.first_name+' '+patient.last_name %></td>
+  <td><%= patient.priority.round(3) %></td>
+  <td><%= content_tag(:span, patient.aasm_state, class: "badge progress-bar-#{PatientHelper::STATUS_BADGES[patient.aasm_state]}") %></td>
+  <td><%= distance_of_time_in_words(Time.now, patient.predicted_time) %></td>
+  <td>
+    <%= link_to('Complete', { controller: "patients", action: "complete", id: patient.id }, class: "btn btn-primary")%>
+    <%= link_to('Edit', edit_patient_path(id: patient.id), class: "btn btn-secondary")%>
+  </td>
+</tr>

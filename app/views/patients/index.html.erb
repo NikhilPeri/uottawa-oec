@@ -8,18 +8,21 @@
 <h1> All Patients </h1>
 <%= link_to 'New Patient', new_patient_path(), :class => "btn btn-primary" %>
 
-
-<div id="patients" class="row">
-    <div id="First Name" class="col-xs-3"><%= "Patient Name" %></div>
-    <div id="Appointment Status" class="col-xs-3"><%= "Appointment Status" %></div>
-    <div id="Predicted Time" class="col-xs-3"><%= "Predicted Time" %></div>
-</div>
-
-
 <%= will_paginate %>
 
-<ul class="patients">
-  <%= render @patients %>
-</ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Appointment Status</th>
+      <th scope="col">Predicted Time</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @patients %>
+  </tbody>
+</table>
 
 <%= will_paginate %>
