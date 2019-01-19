@@ -5,6 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-50.times do
-  FactoryBot.create(:patient)
+if Rails.env.development?
+  50.times do
+    FactoryBot.create(:patient)
+  end
+end
+
+if Rails.env.production?
+  5.times do
+    FactoryBot.create(:patient)
+  end
 end

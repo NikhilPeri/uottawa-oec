@@ -53,6 +53,7 @@ gem 'groupdate'
 
 # Phone number normalization
 gem 'phony_rails'
+gem 'factory_bot_rails'
 
 
 group :development, :test do
@@ -60,7 +61,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'faker'
-  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.8'
 end
 
