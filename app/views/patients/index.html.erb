@@ -24,5 +24,6 @@
     <%= render @patients %>
   </tbody>
 </table>
+<h3> Completed Patients <%= Patient.where(aasm_state: 'completed').count %></h3>
 
 <%= will_paginate %>
