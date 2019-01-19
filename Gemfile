@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bootstrap
-gem 'bootstrap', '~> 3.2.1'
+gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -50,7 +50,6 @@ gem 'aasm'
 gem "chartkick"
 gem 'groupdate'
 gem 'bootstrap-sass'
-gem 'bootstrap'
 gem 'bootstrap-will_paginate'
 
 
