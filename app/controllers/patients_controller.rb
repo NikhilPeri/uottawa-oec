@@ -1,4 +1,5 @@
 include TwilioHelper
+include ActionView::Helpers::NumberHelper
 
 class PatientsController < ApplicationController
 
@@ -11,11 +12,16 @@ class PatientsController < ApplicationController
     Just text #{TwilioHelper::LEAVE_COMMAND} if you no longer need assistance
     EOF
 
-    TwilioHelper.send_message(
-      to: @patient.phone_number,
-      body: body
-    )
-    flash[:success]= 'Patient created'
+    begin
+      TwilioHelper.send_message(
+        to: @patient.phone_number,
+        body: body
+      )
+    rescue
+      flash[:notice] = "Patient could not be reached at #{number_to_phone(@patient.phone_number)}"
+    end
+
+    flash[:success] = 'Patient created'
     redirect_to action: :index
   end
 
@@ -29,7 +35,6 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all.order(:aasm_state).paginate(page: params[:page])
-
   end
 
   def complete
@@ -38,5 +43,4 @@ class PatientsController < ApplicationController
     flash[:success]= 'Appointment Completed'
     redirect_to action: :index
   end
-
 end
