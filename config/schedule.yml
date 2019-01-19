@@ -2,3 +2,8 @@ notification_job:
   cron: "* * * * *"
   class: NotificationJob
   queue: default
+
+patient_ranking_job:
+  cron: "* * * * *"
+  class: PatientRankingJob
+  queue: default
