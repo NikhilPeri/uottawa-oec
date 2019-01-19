@@ -62,8 +62,6 @@ GEM
     bootstrap-sass (3.4.0)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootstrap-will_paginate (1.0.0)
-      will_paginate
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.12.0)
@@ -305,9 +303,8 @@ PLATFORMS
 DEPENDENCIES
   aasm
   bootsnap (>= 1.1.0)
-  bootstrap (~> 4.2.1)
+  bootstrap
   bootstrap-sass
-  bootstrap-will_paginate
   byebug
   capybara (>= 2.15)
   chartkick
