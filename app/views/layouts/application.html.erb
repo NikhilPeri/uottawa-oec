@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html>
+<!--html-->
   <head>
-    <title>Oec2019</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title><%=full_title(yield(:title))%></title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag :application %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+
   </head>
 
-  <body>
+  <!--body-->
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div data-pjax-container class="container">
+    <%= link_to "WaitER", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Stats", stats_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class = "container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+
+      <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
