@@ -1,0 +1,4 @@
+<h1>Visits Today</h1>
+<%= line_chart Patient.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day, aasm_state: [:waiting, :canceled]).group_by_hour_of_day(:created_at, format: "%l %P").count %>
+<h1>Current Waiting Queue</h1>
+<%= pie_chart Patient.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day, aasm_state: [:waiting, :canceled]).group(:aasm_state).count %>

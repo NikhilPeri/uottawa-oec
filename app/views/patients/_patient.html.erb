@@ -1,0 +1,7 @@
+
+<li id="patient-<%= patient.id%>" class="row">
+    <div id="First Name" class="col-xs-3"><%= patient.first_name+' '+patient.last_name %></div>
+    <div id="Appointment Status" class="col-xs-3"><%= patient.aasm_state %></div>
+    <div id="Predicted Time" class="col-xs-3"><%= patient.predicted_time %></div>
+    <%= link_to 'Edit Appt', edit_patient_path(id: patient.id), :class => "col-xs-3 btn btn-primary" %>
+</li>

@@ -1,0 +1,10 @@
+<%provide(:title, "Edit Patient")%>
+<%provide(:button_text, "Save Changes")%>
+<h1> Update Patient Profile </h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
+    <%= link_to 'Finish Appointment', patient_complete_path(patient_id: @patient.id), :class => "btn btn-primary" %>
+  </div>
+
+</div>

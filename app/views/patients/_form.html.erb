@@ -1,0 +1,13 @@
+<%= form_for (@patient) do |f| %>
+<%= render 'shared/error_messages' %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name , class: 'form-control' %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name , class: 'form-control' %>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary btn-md" %>
+
+<% end %>

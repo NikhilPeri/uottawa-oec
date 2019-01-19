@@ -1,0 +1,25 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="container">
+<div class="clear"></div>
+
+
+<%provide(:title, "All Patients")%>
+<h1> All Patients </h1>
+<%= link_to 'New Appointment', new_patient_path(), :class => "btn btn-primary" %>
+
+
+<div id="patients" class="row">
+    <div id="First Name" class="col-xs-3"><%= "Patient Name" %></div>
+    <div id="Appointment Status" class="col-xs-3"><%= "Appointment Status" %></div>
+    <div id="Predicted Time" class="col-xs-3"><%= "Predicted Time" %></div>
+</div>
+
+
+<%= will_paginate %>
+
+<ul class="patients">
+  <%= render @patients %>
+</ul>
+
+<%= will_paginate %>
