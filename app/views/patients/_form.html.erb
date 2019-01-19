@@ -1,12 +1,23 @@
 <%= form_for (@patient) do |f| %>
 <%= render 'shared/error_messages' %>
-
   <%= f.label :first_name %>
   <%= f.text_field :first_name , class: 'form-control' %>
   <%= f.label :last_name %>
   <%= f.text_field :last_name , class: 'form-control' %>
   <%= f.label :phone_number %>
   <%= f.text_field :phone_number, class: 'form-control' %>
+  <%= fields_for :data do |data_fields| %>
+    <%= f.label :heart_rate %>
+    <%= data_fields.number_field :heart_rate, value: @patient.data["heart_rate"], class: 'form-control' %>
+    <%= f.label :respiratory_rate %>
+    <%= data_fields.number_field :respiratory_rate, value: @patient.data["respiratory_rate"], class: 'form-control' %>
+    <%= f.label :body_temp %>
+    <%= data_fields.number_field :body_temp, value: @patient.data["body_temp"], class: 'form-control' %>
+    <%= f.label :age %>
+    <%= data_fields.number_field :age, value: @patient.data["age"], class: 'form-control' %>
+    <%= f.label :oxygen_saturation %>
+    <%= data_fields.number_field :oxygen_saturation, value: @patient.data["oxygen_saturation"], class: 'form-control' %>
+  <% end %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary btn-md" %>
 
